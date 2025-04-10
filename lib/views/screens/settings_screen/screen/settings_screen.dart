@@ -1,8 +1,10 @@
 import 'package:bottom_navigaton_bar/view_model/viewmodel.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SettingsScreen extends StatefulWidget {
-  SettingsScreen({super.key});
+  Function reFresh;
+  SettingsScreen({super.key,required this.reFresh});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -43,7 +45,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               value: appService.model.darkMode,
               onChanged: (value) {
                 appService.toggleDarkMode();
-                setState(() {});
+                setState(() {
+                  widget.reFresh();
+                });
               },
             ),
           ),

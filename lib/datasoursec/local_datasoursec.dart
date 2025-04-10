@@ -8,10 +8,11 @@ class LocalDatasoursec {
     final sharedPreferences = await SharedPreferences.getInstance();
 
     final dataJson = jsonEncode(user.toJson());
-    final result = sharedPreferences.setString("user",dataJson);
+    final result = await sharedPreferences.setString("user",dataJson);
 
     return result;
   }
+
 
   Future<AppModel?> getData() async {
     final sharedPreferences = await SharedPreferences.getInstance();

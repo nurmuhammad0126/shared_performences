@@ -24,7 +24,12 @@ class _MainAppState extends State<MainApp> {
 
     return MaterialApp(
       themeMode: model.darkMode ? ThemeMode.dark : ThemeMode.light,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       home: MainScreen(
+        reFresh: () {
+          setState(() {});
+        },
       ),
     );
   }
